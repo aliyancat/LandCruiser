@@ -1,25 +1,20 @@
 class Solution {
 public:
     int firstUniqChar(string s) {
-        unordered_map<char,int> ls;
+        int cnt[26] = {0};
 
+        for (int i=0;i<s.size();i++){
 
-        for (int i=0 ; i < s.length(); i++){
-
-            ls[s[i]]++;
+            cnt[s[i]-'a']++;
         }
+        for (int i=0;i<s.size();i++) {
 
-        for (int i=0 ; i < s.length();i++) {
-
-            if (ls[s[i]] == 1) {
-
-
+            if ( cnt[s[i]-'a'] == 1) {
                 return i;
             }
         }
 
 
         return -1;
-
     }
 };
